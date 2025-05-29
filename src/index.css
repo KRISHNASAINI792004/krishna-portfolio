@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You can add custom styles here */
+body {
+  @apply bg-gray-100 font-sans;
+  margin: 0;
+}
+
+.App {
+  @apply text-center p-10;
+}
