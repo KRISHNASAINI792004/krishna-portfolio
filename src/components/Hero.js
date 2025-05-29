@@ -36,7 +36,7 @@ const Hero = () => {
       />
 
       <h1 className="text-5xl md:text-6xl font-bold text-cyan-400 mb-4">
-        Hi, I'm Krishna
+        Hi, I'm arrru
       </h1>
 
       <h2 className="text-3xl md:text-4xl text-gray-300 mb-8 h-12">
