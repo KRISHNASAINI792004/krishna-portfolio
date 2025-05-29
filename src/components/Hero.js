@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const words = ["Data Scientist", "Full Stack Developer", "Open Source Lover"];
+const roles = ["Data Scientist", "Full Stack Developer", "Open Source Lover"];
 
 const Hero = () => {
   const [text, setText] = useState("");
@@ -9,70 +9,65 @@ const Hero = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      let fullText = words[index];
+      const fullText = roles[index];
       setText((prev) =>
-        isDeleting ? fullText.substring(0, prev.length - 1) : fullText.substring(0, prev.length + 1)
+        isDeleting
+          ? fullText.substring(0, prev.length - 1)
+          : fullText.substring(0, prev.length + 1)
       );
 
       if (!isDeleting && text === fullText) {
         setTimeout(() => setIsDeleting(true), 1000);
       } else if (isDeleting && text === "") {
         setIsDeleting(false);
-        setIndex((prev) => (prev + 1) % words.length);
+        setIndex((prev) => (prev + 1) % roles.length);
       }
-    }, isDeleting ? 80 : 150);
+    }, isDeleting ? 60 : 120);
 
     return () => clearTimeout(timeout);
-  }, [text, index, isDeleting]);
+  }, [text, isDeleting, index]);
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-gray-900">
-      
+    <section className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-4 text-center">
       {/* 👤 Profile Image */}
       <img
-        src="/test.JPG"
-        alt="Krishna"
-        className="w-40 h-40 rounded-full shadow-lg border-4 border-cyan-400 mb-6 object-cover"
+        src="/krsna.jpg"
+        alt="Krishna Saini"
+        className="w-64 h-64 md:w-72 md:h-72 rounded-full object-cover border-4 border-cyan-400 shadow-2xl mb-6"
       />
 
-      <h1 className="text-5xl md:text-6xl font-bold text-cyan-400 mb-4">
+      <h1 className="text-4xl md:text-6xl font-bold text-cyan-400 mb-4">
         Hi, I'm Krishna Saini
       </h1>
 
-      <h2 className="text-3xl md:text-4xl text-gray-300 mb-8 h-12">
+      <h2 className="text-2xl md:text-4xl text-gray-300 mb-6 h-12">
         <span>{text}</span>
-        <span className="border-r-2 border-cyan-400 animate-pulse ml-1"></span>
+        <span className="ml-1 border-r-2 border-cyan-400 animate-pulse"></span>
       </h2>
 
-      <p className="max-w-xl text-gray-400">
-        Passionate about building scalable web applications and interactive experiences.
+      <p className="max-w-2xl text-gray-400 text-lg">
+        I love building dynamic, engaging user experiences with modern technologies. Let’s build something amazing!
       </p>
 
-      <div className="mt-8 flex space-x-6 text-cyan-400 text-2xl">
+      <div className="mt-8 flex gap-8 text-cyan-400 text-2xl">
         <a
-          href="https://github.com/yourgithub"
+          href="https://github.com/krishnasaini792004"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="GitHub"
-          className="hover:text-white transition"
+          className="hover:text-white"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0C5.37...z" />
-          </svg>
+          GitHub
         </a>
         <a
-          href="https://linkedin.com/in/yourlinkedin"
+          href="https://www.linkedin.com/in/krishna-saini-a38253260/"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className="hover:text-white transition"
+          className="hover:text-white"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M4.98 3.5...z" />
-          </svg>
+          LinkedIn
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 
